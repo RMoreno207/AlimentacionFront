@@ -132,15 +132,7 @@ const Home = () => {
        
 
       </div> */}
-      <article class="menuHamb">
-        <ul>
-          <li><a href="#">Bienvenida</a></li>
-          <li><a href="./pages/biografia.html">Sobre mí</a></li>
-          <li><a href="./pages/portfolio.html">Portfolio</a></li>
-          <li><a href="./pages/contacto.html">Contacto</a></li>
-         
-        </ul>
-      </article>
+      
     </div>
   )
 }

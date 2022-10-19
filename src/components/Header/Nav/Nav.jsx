@@ -31,15 +31,7 @@ function Nav() {
   },[showNav])
 
 
-  function handleClickBtn(){
-    console.log("griogeioru")
-    if(btnState===false){
-      setBtnState(true)
-    }
-    else{
-      setBtnState(false);
-    }
-  }
+  
 
   let toggleClassCheck = btnState?'active':'';
 
@@ -62,9 +54,10 @@ function Nav() {
     <header>
       {showNav===true?<div>{userCheck === null? <div className='navContainer'>
       <SideBar pageWrapId={"page-wrap"} outerContainerId={"navContainer"} />
-        <Logo className='logoHeader'/>
-      </div> : <div className='navContainer'> <SideBar pageWrapId={"page-wrap"} outerContainerId={"navContainer"} />
-         <Logo className='logoHeader'/>
+        {location.pathname.includes('/profile')?null:<Logo className='logoHeader'/>}
+      </div> : <div className='navContainer'>
+         {location.pathname.includes('/details')?null:<SideBar pageWrapId={"page-wrap"} outerContainerId={"navContainer"} />}
+      {location.pathname.includes('/profile')||location.pathname.includes('/restaurants')||location.pathname.includes('/details')||location.pathname.includes('/stores')?null:<Logo className='logoHeader'/>}
       </div>}</div>:null}
     </header>
   )
