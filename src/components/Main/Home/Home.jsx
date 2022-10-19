@@ -127,10 +127,8 @@ const Home = () => {
         <Link to={'/user/profile'}><h1>Perfil</h1></Link>
       </div>
       <div className='scanner'>
-
         <h3>Scanner</h3>
        
-
       </div> */}
       
     </div>
