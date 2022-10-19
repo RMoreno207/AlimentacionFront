@@ -90,9 +90,6 @@ const List = () => {
   return (
       <div className='showcase'>
          <div className="listContainer" >
-      <div className="backButton">
-        <Link to="/home"><img src={BackLogo} alt="" /></Link>
-      </div>
       <div className="storesTitleContainer">
         {params.re === "restaurants" ?
           <h2 className="storesTitle">Restaurantes cerca de ti</h2>
@@ -115,15 +112,7 @@ const List = () => {
       </ul>
       <ScrollButton />
     </div >
-    <article class="menuHamb">
-        <ul>
-          <li><a href="#">Bienvenida</a></li>
-          <li><a href="./pages/biografia.html">Sobre mí</a></li>
-          <li><a href="./pages/portfolio.html">Portfolio</a></li>
-          <li><a href="./pages/contacto.html">Contacto</a></li>
-         
-        </ul>
-      </article>
+   
       </div>
   )
 };

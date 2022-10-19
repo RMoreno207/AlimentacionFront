@@ -31,10 +31,13 @@ const Profile = () => {
   return <div className='showcase'>
     <div className='profileTop'>
       <div className='profileImg'>
-        <img style={{ width: "100px" }} src='https://cdn-icons-png.flaticon.com/512/17/17004.png'></img>
-        <Link to="/user/profile/edit"><img src={Settings} alt="" /></Link>
+        <img className='profile' style={{ width: "100px" }} src='https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png'></img>
+        
       </div>
-      <h1>{userData ? userData.email : "Usuario"}</h1>
+      <div className='editUser'>
+        <Link to="/user/profile/edit"><img src={Settings} alt="" /></Link>
+        <h1>{userData ? userData.email : "Usuario"}</h1>
+      </div>
     </div>
 
 
@@ -43,15 +46,7 @@ const Profile = () => {
     <Discounts />
 
     <Favorites />
-    <article class="menuHamb">
-        <ul>
-          <li><a href="#">Bienvenida</a></li>
-          <li><a href="./pages/biografia.html">Sobre mí</a></li>
-          <li><a href="./pages/portfolio.html">Portfolio</a></li>
-          <li><a href="./pages/contacto.html">Contacto</a></li>
-         
-        </ul>
-      </article>
+   
 
   </div >;
 };
