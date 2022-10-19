@@ -6,7 +6,7 @@ import Discounts from "../../common/Discounts/Discounts";
 import Reserva from "../../common/Reserva/Reserva";
 import Map from "../../common/Map/Map";
 import Recommendations from "../User/Recommendations/Recommendations";
-
+import BackLogo from '../../../assets/img/Back @2x.png';
 
 function Details() {
   const params = useParams();// Para poder usar los parametros capturados por el router
@@ -40,6 +40,9 @@ function Details() {
 
 
   return (<>
+   <div className="backButton">
+        <Link to="/home"><img src={BackLogo} alt="" /></Link>
+      </div>
     {details ?
       <article>
 
@@ -61,6 +64,7 @@ function Details() {
 
         <div>
           <p>Listado de hashtags</p>
+          
         </div>
 
 
