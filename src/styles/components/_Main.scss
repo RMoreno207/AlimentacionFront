@@ -209,6 +209,9 @@ a:visited{
     .cardContainer{
         width: 100%;
     }
+    .miniCardContainer{
+      width: 100%;
+    }
     a{
         color: #e7ffef;
     }
@@ -621,15 +624,28 @@ a:visited{
   .descriptionDetail{
     position: relative;
     width: 80%;
+    display: flex;
+    flex-direction: column;
     margin: auto;
     top: 330px;
-    p{
-      
+    a{
+       padding: 5px;
+       background: #E8AF43;
+       width: 40%;
+       margin: auto;
+       color: #FFFFFF;
+       font-weight: bold;
+       border-radius: 8px;
+    }
+    a:hover{
+      background: #f6c05e;
     }
     img{
       padding: 16px;
       background: #D2DDD5;
       border-radius: 8px;
+      margin-left: 150px;
+      margin-bottom: 10px;
       cursor: pointer;
     }
   }
@@ -882,8 +898,8 @@ a:visited{
   width: 80%;
   margin: auto;
   height: 485px;
-  border: 2px solid #144E24;
-  border-radius: 8px;
+  // border: 2px solid #144E24;
+  // border-radius: 8px;
   #root > div > main > article > div.detailsContainer > div.mapContainer > div > div{
     height: 100px;
     border-radius: 16px;
@@ -943,6 +959,7 @@ a:visited{
   width: 80%;
  .discountMini{
   position: relative;
+  margin-left: 10px;
   img{
     width: 100%;
     border-radius: 16px;
@@ -951,7 +968,7 @@ a:visited{
     position: absolute;
     font-weight: bold;
     color: white;
-    width: 100%;
+    width: 80%;
     vertical-align:middle;
     padding: 10px;
     margin-right: 15px;
@@ -993,9 +1010,11 @@ body > div.swal2-container.swal2-center.swal2-backdrop-show > div{
 .miniCardContainer{
   margin-bottom: 0px;
   position: relative;
-  width: 100%;
+  // width: 100%;
   img{
-      width: 100%;
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
       height: 220px;
       border-radius: 8px;
       margin: 0px;
@@ -1015,8 +1034,9 @@ body > div.swal2-container.swal2-center.swal2-backdrop-show > div{
       background: rgba(72, 119, 62, 0.7);
       border-radius: 0px 0px 8px 8px;
       position: absolute;
-      width: 100%;
+      // width: 100%;
       bottom: 0%;
+      min-width: 100%;
       padding-bottom: 10px;
       height: 25%;
  }
