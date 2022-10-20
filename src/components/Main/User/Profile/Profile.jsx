@@ -38,7 +38,7 @@ const Profile = () => {
       </div>
       <div className='editUser'>
         <Link to="/user/profile/edit"><img src={Settings} alt="" /></Link>
-        <h1>{userData ? userData.name : "Usuario"}</h1>
+        <h1>{userData ? userCheck : "Usuario"}</h1>
       </div>
     </div>
 
