@@ -4,6 +4,7 @@ import DtPicker from 'react-calendar-datetime-picker'
 import 'react-calendar-datetime-picker/dist/index.css';
 import { checkUserContext } from "../../../context/checkUserContext";
 import axios from 'axios';
+import reservaMenu from '../../../assets/img/reservaMenu.png'
 
 const Reserva = (props) => {
   const info = props.data;
@@ -44,15 +45,33 @@ const Reserva = (props) => {
 
   return(
     <>
-      <h2>Reserva</h2>
-      <DtPicker  onChange={setDate} />
-      <label htmlFor="">Número de comensales</label>
+      <h2 className="reservaTitle">Reserva</h2>
+      <DtPicker  placeholder="Elige una fecha" onChange={setDate} />
+      <div className="bookingRestaurant">
       <div className="countPeople">
-        <button onClick={sumPeople}>+</button>
+        <h3>Pax</h3>
+      <button onClick={subtractPeople}>-</button>
         <p>{people}</p>
-        <button onClick={subtractPeople}>-</button>
+       <button onClick={sumPeople}>+</button>
       </div>
-      {showBtn!=true||people===0?null:<button onClick={sendBooking}>Reservar</button>}
+      <button className="bookingBtn" onClick={sendBooking}>Reservar</button>
+      </div>
+      <div className="reservaHolder">
+        <div className="reservaImg">
+          <label htmlFor="">Haz una reserva de un menú sostenible:</label>
+          <img src={reservaMenu} alt="" />
+        </div>
+        <div className="countPeople">
+          <div className="operation">
+            <button onClick={subtractPeople}>-</button>
+            <p>{people}</p>
+            <button onClick={sumPeople}>+</button>
+          </div>
+          <button className="bookingBtn" onClick={sendBooking}>Reservar</button>
+        </div>
+       
+      </div>
+     
       {/* {printDate?<p>Has reservado para el día {printDate}</p>:null} */}
     </>
   )
