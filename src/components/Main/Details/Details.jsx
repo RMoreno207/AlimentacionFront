@@ -15,7 +15,7 @@ function Details() {
   const { getDiscounts } = useContext(checkUserContext);//Funcion para obtener el listado de stores
   const { discounts, setDiscounts } = useContext(checkUserContext);//Hook con el listado de las stores
   const [isRestaurant, setIsRestaurant] = useState()
-
+  console.log("params details ", params);
 
   useEffect(() => {
     getDetails(params.id)//Lanzamos la busqueda
@@ -40,9 +40,9 @@ function Details() {
 
 
   return (<>
-   <div className="backButton">
-        <Link to="/home"><img src={BackLogo} alt="" /></Link>
-      </div>
+    <div className="backButton">
+      <Link to="/home"><img src={BackLogo} alt="" /></Link>
+    </div>
     {details ?
       <article>
 
@@ -64,7 +64,7 @@ function Details() {
 
         <div>
           <p>Listado de hashtags</p>
-          
+
         </div>
 
 
@@ -105,7 +105,7 @@ function Details() {
           : null}
 
 
-        <Recommendations />
+        <Recommendations index={params.index} />
 
 
       </article >

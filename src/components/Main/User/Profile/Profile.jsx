@@ -16,11 +16,13 @@ const Profile = () => {
   console.log(userCheck);
 
 
+
   useEffect(() => {
     if (userData == null) {
       checkUser()
       userDetails()
     }
+    console.log(userData);
     // console.log(userCheck);
     if (userCheck === null) {
       navigate("/home");

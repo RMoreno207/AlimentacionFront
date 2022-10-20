@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 
 function Card(props) {
   const info = props.value;
+  console.log("CARD props ", props);
 
   return (
-    <Link to={`/stores/details/${info.place_id}/${props.isRestaurant}`} className="detailLink">
+    <Link to={`/stores/details/${info.place_id}/${props.isRestaurant}/${props.value.index}`} className="detailLink">
       <div className="cardContainer">
         <div className="cardText">
           <h4 >{info.place_name}</h4>

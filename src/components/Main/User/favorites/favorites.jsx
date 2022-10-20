@@ -12,17 +12,25 @@ import { Link } from "react-router-dom";
 const Favorites = (props) => {
   console.log(props);
   const info = props.value;
-  const { stores, setStores } = useContext(checkUserContext);//Hook con el listado de las stores
+  const { stores, setStores, getStores } = useContext(checkUserContext);//Hook con el listado de las stores
   const { getFavorites } = useContext(checkUserContext);//Funcion para obtener el listado de stores
   const [items, setItems] = useState(stores);
 
 
   useEffect(() => {
-    sortStores();
+    getStores()
+    if (stores != null) {
+      sortStores()
+    }
   }, []);
 
-  console.log(stores);
+  useEffect(() => {
+    if (stores != null) {
+      sortStores()
+    }
+  }, [stores]);
 
+  console.log(stores);
 
   const sortStores = () => {
     console.log("HANDLESORT");
@@ -35,7 +43,6 @@ const Favorites = (props) => {
     setItems(data);
     console.log(data);
   }
-
 
   return (<>
     {/* <section>
