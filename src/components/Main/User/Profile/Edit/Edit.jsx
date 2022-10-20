@@ -31,28 +31,15 @@ const Edit = () => {
   }, []);
 
   //Editar los datos del usuario
-  // const editUser = async (data) => {
-  //   try {
-  //     const refactorData = {
-  //       email: data.email,
-  //     }
-  //     const mergedData = { ...refactorData, ...checked };//unimos el objeto refactor data que contiene los datos de los inputs, con los datos de los checkbox
-  //     console.log("USER EDITED", mergedData);
-  //     // await axios.put('/api/updateUser', mergedData);
-  //   } catch (error) {
-  //     console.log(error, "No se ha podido editar el Usuario")
-  //   }
-  // }
 
-  //Envio del formulario a la bbdd
-  // BORRAR CUANDO SE HAGA EL DE EDITAR
   const onSubmit = async (form) => {
     try {
       console.log(form);
-      alert("La bbdd no está conectada")
-      // const res = await axios.post('http://localhost:5000/api/signup', form);
+      alert("Usuario editado con exito!")
+      navigate('/home')
+      const res = await axios.put('https://alimentacionback-production.up.railway.app/api/updateUser', form);
       // console.log(res.data);
-      // navigate('/login')
+
     }
     catch (error) {
       console.log(error);
@@ -103,7 +90,18 @@ const Edit = () => {
     {/* Formulario con los campos del perfil a editar */}
     {/* Precarga de los datos del usuario */}
     {/* HACER PRECARGA DE TODAS LAS PREFERENCIAS CUANDO ESTE LA DB */}
-    {/* {userData ? setValue("nombre", userData.name) : "..."} */}
+    {userData ? setValue("nombre", userData.name) : "..."}
+    {userData ? setValue("productosTemporada", userData.productostemporada) : "..."}
+    {userData ? setValue("productosFrescos", userData.productosfrescos) : "..."}
+    {userData ? setValue("organico", userData.organico) : "..."}
+    {userData ? setValue("saludable", userData.saludable) : "..."}
+    {userData ? setValue("sostenible", userData.sostenible) : "..."}
+    {userData ? setValue("basura0", userData.basura0) : "..."}
+    {userData ? setValue("km0", userData.km0) : "..."}
+    {userData ? setValue("vegano", userData.vegano) : "..."}
+    {userData ? setValue("vegetariano", userData.vegetariano) : "..."}
+    {userData ? setValue("artesanal", userData.artesanal) : "..."}
+
 
     {/* Primera parte del formulario */}
     {/* <Logo /> */}

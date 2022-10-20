@@ -19,9 +19,12 @@ function Details() {
   const { getDiscounts } = useContext(checkUserContext);//Funcion para obtener el listado de stores
   const { discounts, setDiscounts } = useContext(checkUserContext);//Hook con el listado de las stores
   const [isRestaurant, setIsRestaurant] = useState()
+  console.log("params details ", params);
+
   const [rating,setRating] = useState(0);
   const [inputText,setInputText] = useState(null);
   const location = useLocation();
+
 
   useEffect(() => {
     getDetails(params.id)//Lanzamos la busqueda
@@ -71,9 +74,9 @@ function Details() {
 
 
   return (<>
-   <div className="backButton">
-        <Link to="/home"><img src={BackLogo} alt="" /></Link>
-      </div>
+    <div className="backButton">
+      <Link to="/home"><img src={BackLogo} alt="" /></Link>
+    </div>
     {details ?
       <article className="structureDetail">
 
@@ -109,6 +112,7 @@ function Details() {
             <p>eco</p>
             <p>KM 0</p>
             <p>vegetariano</p>
+
         </div>
 
        
@@ -175,7 +179,7 @@ function Details() {
        </div>
 
 
-        <Recommendations />
+        <Recommendations index={params.index} />
 
         </div>
 

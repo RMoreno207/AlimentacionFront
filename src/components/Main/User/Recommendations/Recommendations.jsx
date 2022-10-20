@@ -8,25 +8,105 @@ import 'swiper/css';
 import "swiper/css/free-mode";
 import { Link } from "react-router-dom";
 import Card from "../../List/Card/Card";
+import axios from "axios";
+
 
 //Tendra que recibir algun parametro para indicarle la id del comercio a buscar
 const Recommendations = (props) => {
   const info = props.value;
-  const { recommendations, setRecommendations } = useContext(checkUserContext);//Hook con el listado de las stores
-  const { getRecommendations } = useContext(checkUserContext);//Funcion para obtener el listado de stores
-
+  console.log("recomendations props ", props);
+  const { getDetails } = useContext(checkUserContext);//Hook con el listado de las stores
+  // const { getRecommendations } = useContext(checkUserContext);//Funcion para obtener el listado de stores
+  const [recommendations, setRecommendations] = useState([]);
+  const [businessRecomendated, setBusinessRecomendated] = useState([177, 40, 47, 229, 339, 357, 23, 367, 503, 46]);
+  const [recom, setRecom] = useState([]);
 
   useEffect(() => {
-    getRecommendations(info);
+    // getRecommendations();
+    getRecomendationsPersonal();
+    getDetailsByIndex(businessRecomendated)
+
   }, []);
 
+  //Obtener los descuentos
+  // https://protected-ravine-80490.herokuapp.com/RecomendacionDependiente?ID=0
+
+
+  const getRecommendations = async () => {
+    try {
+      console.log("REEECOMENDATIOS");
+
+      const res = await axios.get(`https://protected-ravine-80490.herokuapp.com/RecomendacionDependiente?ID=${props.index}`);
+      console.log("Res de API ", res);
+      setBusinessRecomendated(res);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  //Obtener las recomendaciones personales
+  const getRecomendationsPersonal = async () => {
+    try {
+      console.log("REEECOMENDATIOS PERSONAL");
+      const objeto = {
+        preferencias: [5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
+      }
+      const res = await axios.post(`https://protected-ravine-80490.herokuapp.com/RecomendacionPorPreferencias`, {
+        method: 'POST',
+        body: { "preferencias": [5, 5, 5, 5, 5, 5, 5, 5, 5, 5] }
+      });
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  //Obtener negocios recomendados
+  const getDetailsByIndex = async (recomendated) => {
+    recomendated.map((item, i) => {
+
+      getBusiness(item)
+
+    })
+
+  }
+  const getBusiness = async (item) => {
+    try {
+      const res = await axios.get(`https://alimentacionback-production.up.railway.app/api/restaurant/?index=${item}`);
+      const refactorData = {
+        place_name: res.data[0].place_name,
+        thumbnail: res.data[0].thumbnail,
+        place_id: res.data[0].place_id
+
+      }
+      setRecommendations([...recommendations, refactorData])
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  console.log("RECOMENDATIONS USE ", recommendations);
+
+
+  // const res = await fetch('https://alimentacionback-production.up.railway.app/api/login', {
+  //       method: 'POST',
+  //       body: JSON.stringify(form),
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       },
+  //       credentials: 'include'
+  //     })
+
+
+
+
+  // https://protected-ravine-80490.herokuapp.com/RecomendacionPorPreferencias
 
   return (<>
     <section className="profileSection">
       <h1>Recomendaciones:</h1>
-      {recommendations ? recommendations.episode.slice(0, 2)
+      {/* {recommendations ? recommendations
         .map((item, i) => <MiniCard key={uuidv4()} index={i} value={item} />)
-        : "Loading..."}
+        : "Loading..."} */}
       <Swiper freeMode={true}
 
         grabCursor={true}
@@ -34,7 +114,7 @@ const Recommendations = (props) => {
         className='recommendationCarousel'
         slidesPerView={2}
         spaceBetween={30}>
-        {recommendations ? recommendations.episode.slice(0, 10).map((item, i) => {
+        {recommendations ? recommendations.map((item, i) => {
           return <SwiperSlide key={uuidv4()} index={i}><MiniCard value={item} /></SwiperSlide>
         })
           : <div>
