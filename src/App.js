@@ -13,7 +13,7 @@ import Restaurants from "./components/Main/Restaurants/Restaurants";
 
 
 function App() {
-  const [userCheck, setUserCheck] = useState(null);
+  const [userCheck, setUserCheck] = useState("ramon@ramon.es");
   const [userData, setUserData] = useState(null)//Hook para almacenar los datos del perfil de usuario
   const [stores, setStores] = useState(null);//Hook para almacenar el listado de tiendas
   const [details, setDetails] = useState(null);//Hook para almacenar los detalles de una store
@@ -23,6 +23,8 @@ function App() {
   const [favorites, setFavorites] = useState(null);//Hook con el listado de Favoritos
   const [showNav, setShowNav] = useState(null);
   const [restaurants, setRestaurants] = useState(null)
+  const [items, setItems] = useState(null);//Almacenar all landings para paginar
+
   console.log(stores);
 
   console.log("userCheck ", userCheck);
@@ -64,20 +66,32 @@ function App() {
   }
 
   //Obtener listado de todas las tiendas
-  const getStores = async () => {
+  const getStores = async (num) => {
     try {
       const res = await axios.get('https://alimentacionback-production.up.railway.app/api/store');
-      setStores(res.data.slice(0, 10));
+      if (num === null) {
+        setStores(res.data);
+        setItems(res.data);
+      } else {
+        setStores(res.data.slice(0, num));
+        setItems(res.data.slice(0, num));
+      }
     }
     catch (error) {
       console.log(error);
     }
   }
 
-  const getRestaurants = async () => {
+  const getRestaurants = async (num) => {
     try {
       const res = await axios.get('https://alimentacionback-production.up.railway.app/api/restaurant');
-      setRestaurants(res.data.slice(0, 10));
+      if (num === null) {
+        setRestaurants(res.data);
+        setItems(res.data);
+      } else {
+        setRestaurants(res.data.slice(0, num));
+        setItems(res.data.slice(0, num));
+      }
     }
     catch (error) {
       console.log(error)
@@ -108,7 +122,7 @@ function App() {
     }
   }
 
- 
+
 
   //Obtener las recomendaciones
   const getRecommendations = async (id) => {
@@ -162,7 +176,9 @@ function App() {
     restaurants,
     setRestaurants,
     showNav,
-    setShowNav
+    setShowNav,
+    setItems,
+    items
   }
 
 

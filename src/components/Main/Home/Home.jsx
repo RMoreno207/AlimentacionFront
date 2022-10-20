@@ -34,8 +34,8 @@ const Home = () => {
   useEffect(() => {
     setShowNav(true);
     checkUser()
-    getStores()
-    getRestaurants();
+    getStores(6)
+    getRestaurants(6);
 
 
 
@@ -130,7 +130,7 @@ const Home = () => {
         <h3>Scanner</h3>
        
       </div> */}
-      
+
     </div>
   )
 }

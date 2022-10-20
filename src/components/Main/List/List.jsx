@@ -1,6 +1,8 @@
 import { checkUserContext } from '../../../context/checkUserContext'
 import React, { useEffect, useState, useContext } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import ReactPaginate from "react-paginate";
+
 import { v4 as uuidv4 } from 'uuid';
 // import List from "../List/List"
 import Card from '../List/Card/Card';
@@ -22,10 +24,20 @@ const List = () => {
   const { userDetails } = useContext(checkUserContext);//Funcion para obtener los detalles del usuario
   const { stores, setStores } = useContext(checkUserContext);//Hook con el listado de las stores
   const { restaurants, setRestaurants } = useContext(checkUserContext);//Hook con el listado de las stores
-  const [items, setItems] = useState();
+  const { items, setItems } = useContext(checkUserContext);
   const { getStores, getRestaurants } = useContext(checkUserContext);//Funcion para obtener el listado de stores
   const [sortBy, setSortBy] = useState("bestValue"); //Para indicar como ordenar el listado
 
+  const [pageNumber, setPageNumber] = useState(0);//Para paginacion
+  const itemsPerPage = 8;//Numero de items a mostrar en cada pagina
+  const pagesVisited = pageNumber * itemsPerPage;
+  const pageCount = Math.ceil(200 / itemsPerPage);
+  console.log("items ", items);
+
+  ;//Contador de paginas
+  const changePage = ({ selected }) => {//componente ReactPaginate contiene un objeto llamado selected y nos dice la pagina en la que estamos
+    setPageNumber(selected);
+  }
 
   console.log("userCheck", userCheck);
   console.log(sortBy);
@@ -37,12 +49,9 @@ const List = () => {
     if (restaurant === "restaurants") {
       console.log("es restaurante", params.re);
       getRestaurants()
-      setItems(restaurants)
-
     } else {
       console.log("no es restaurante", params.re);
-      getStores();
-      setItems(stores)
+      getStores(15);
 
     }
 
@@ -51,6 +60,8 @@ const List = () => {
       navigate("/home");
     }
   }, []);
+
+
 
   const handleChange = (e) => {
     setSortBy(e.target.value)
@@ -88,32 +99,44 @@ const List = () => {
   }
 
   return (
-      <div className='showcase'>
-         <div className="listContainer" >
-      <div className="storesTitleContainer">
-        {params.re === "restaurants" ?
-          <h2 className="storesTitle">Restaurantes cerca de ti</h2>
-          : <h2 className="storesTitle">Comercios cerca de ti</h2>
+    <div className='showcase'>
+      <div className="listContainer" >
+        <div className="storesTitleContainer">
+          {params.re === "restaurants" ?
+            <h2 className="storesTitle">Restaurantes cerca de ti</h2>
+            : <h2 className="storesTitle">Comercios cerca de ti</h2>
 
-        }
-      </div>
-      <div className="sortBurger">
-        {/* <button><img className="burgerBtn" src={BurgerBtn} alt="" /></button> */}
-        <select className="sortList" onChange={handleChange}>
-          <option value="rating">Mejor valorados</option>
-          <option value="coments">Más comentados</option>
-          <option value="byName">Por nombre</option>
-        </select>
-      </div>
-      <ul className="directoryList">
-        {items ? items
-          .map((item, i) => <li key={uuidv4()} index={i}><Card isRestaurant={params.re} value={item} /></li>)
-          : <h2>Loading...</h2>}
-      </ul>
-      <ScrollButton />
-    </div >
-   
-      </div>
+          }
+        </div>
+        <div className="sortBurger">
+          {/* <button><img className="burgerBtn" src={BurgerBtn} alt="" /></button> */}
+          <select className="sortList" onChange={handleChange}>
+            <option value="rating">Mejor valorados</option>
+            <option value="coments">Más comentados</option>
+            <option value="byName">Por nombre</option>
+          </select>
+        </div>
+        <ul className="directoryList">
+          {items ? items
+            .slice(pagesVisited, pagesVisited + itemsPerPage)
+            .map((item, i) => <li key={uuidv4()} index={i}><Card isRestaurant={params.re} value={item} /></li>)
+            : <h2>Loading...</h2>}
+        </ul>
+        {/* Indice de las paginas */}
+        <ReactPaginate
+          previousLabel={"Previous"}
+          nextLabel={"Next"}
+          pageCount={pageCount}
+          onPageChange={changePage}
+          containerClassName={"paginationBttns"}
+          nextLinkClassName={"nextBttn"}
+          disabledClassName={"paginationDisabled"}
+          activeClassName={"paginationActive"}
+        />
+        <ScrollButton />
+      </div >
+
+    </div>
   )
 };
 
