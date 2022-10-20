@@ -1041,3 +1041,28 @@ body > div.swal2-container.swal2-center.swal2-backdrop-show > div{
       height: 25%;
  }
 }
+
+
+#root > div > main > div > div > ul.paginationBttns{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  li{
+    display: none;
+  }
+  .next{
+    display: block;
+    margin-bottom: 20px;
+  }
+  .previous{
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+#root > div > main > div > div > div.sc-dkrFOg.kHdykZ > svg{
+  margin-right: 400px;
+}
+#root > div > main > div > div > div.sc-dkrFOg.kHdykZ{
+  margin-top: 50px;
+}
