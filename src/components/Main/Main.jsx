@@ -21,7 +21,7 @@ function Main() {
         <Route element={<List />} path={"/list/:re"} />
         <Route element={<Profile />} path={"/user/profile"} />
         <Route element={<Edit />} path={"/user/profile/edit"} />
-        <Route element={<Details />} path={"/stores/details/:id/:re"} />
+        <Route element={<Details />} path={"/stores/details/:id/:re/:index"} />
         <Route element={<RestaurantDetails />} path={'/restaurants/details/:id'} />
       </Routes>
     </main>

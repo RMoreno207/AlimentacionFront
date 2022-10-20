@@ -13,7 +13,7 @@ import Restaurants from "./components/Main/Restaurants/Restaurants";
 
 
 function App() {
-  const [userCheck, setUserCheck] = useState(null);
+  const [userCheck, setUserCheck] = useState("ramon@ramon.es");
   const [userData, setUserData] = useState(null)//Hook para almacenar los datos del perfil de usuario
   const [stores, setStores] = useState(null);//Hook para almacenar el listado de tiendas
   const [details, setDetails] = useState(null);//Hook para almacenar los detalles de una store
@@ -23,7 +23,7 @@ function App() {
   const [favorites, setFavorites] = useState(null);//Hook con el listado de Favoritos
   const [showNav, setShowNav] = useState(null);
   const [restaurants, setRestaurants] = useState(null)
-
+  console.log(stores);
 
   console.log("userCheck ", userCheck);
 

@@ -16,11 +16,13 @@ const Profile = () => {
   console.log(userCheck);
 
 
+
   useEffect(() => {
     if (userData == null) {
       checkUser()
       userDetails()
     }
+    console.log(userData);
     // console.log(userCheck);
     if (userCheck === null) {
       navigate("/home");
@@ -32,11 +34,11 @@ const Profile = () => {
     <div className='profileTop'>
       <div className='profileImg'>
         <img className='profile' style={{ width: "100px" }} src='https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png'></img>
-        
+
       </div>
       <div className='editUser'>
         <Link to="/user/profile/edit"><img src={Settings} alt="" /></Link>
-        <h1>{userData ? userData.email : "Usuario"}</h1>
+        <h1>{userData ? userData.name : "Usuario"}</h1>
       </div>
     </div>
 
@@ -46,7 +48,7 @@ const Profile = () => {
     <Discounts />
 
     <Favorites />
-   
+
 
   </div >;
 };
