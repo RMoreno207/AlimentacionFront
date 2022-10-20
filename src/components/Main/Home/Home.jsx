@@ -94,7 +94,7 @@ const Home = () => {
           slidesPerView={2}
           spaceBetween={30}>
           {stores ? stores.map((item, i) => {
-            return <SwiperSlide className='swiperCard' key={i}><Card isRestaurant={false} value={item} /></SwiperSlide>
+            return <SwiperSlide className='swiperCard' key={i}><Card isRestaurant={"false"} value={item} /></SwiperSlide>
           })
             : null}
           <SwiperSlide className='plusCard'><Link to="/list/stores"><img className='plusImg' src={plusSign} alt="" /><h3>Ver más</h3></Link></SwiperSlide>

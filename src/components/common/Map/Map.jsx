@@ -19,7 +19,7 @@ const Map = (props) => {
   const lat = lat1 + dot + lat3;
 
   var icon = new L.Icon({
-    iconUrl: 'https://cdn-icons-png.flaticon.com/512/2049/2049726.png',
+    iconUrl: 'https://cdn-icons-png.flaticon.com/512/561/561176.png',
     iconSize: [30, 30],
     iconAnchor: null
   });
