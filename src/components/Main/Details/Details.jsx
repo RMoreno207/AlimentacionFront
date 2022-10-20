@@ -9,7 +9,8 @@ import Recommendations from "../User/Recommendations/Recommendations";
 import BackLogo from '../../../assets/img/Back @2x.png';
 import { Rating } from "@mui/material";
 import { useLocation } from 'react-router-dom';
-
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import 'sweetalert2/src/sweetalert2.scss'
 
 function Details() {
   const params = useParams();// Para poder usar los parametros capturados por el router
@@ -46,6 +47,22 @@ function Details() {
   function sendComment(){
     setRating(0);
     setInputText("")
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+
+    Toast.fire({
+      icon: 'success',
+      title: 'Reseña enviada'
+    })
   }
 
   function handleInputChange(e){
@@ -137,8 +154,8 @@ function Details() {
           </div>
         }
 
-
-        <Reserva />
+        {location.pathname.includes("restaurants")?<Reserva value={"restaurants"}/>:<Reserva value={"stores"}/>}
+      
 
 
        <div className="mapContainer">
