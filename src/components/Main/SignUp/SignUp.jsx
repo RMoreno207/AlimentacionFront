@@ -98,7 +98,7 @@ const SignUp = () => {
 
   return (
     <>
-      {/* Primera parte del formulario */}
+     
       <Logo value={"noLink"} />
       <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
         <fieldset style={part1 ? {} : { display: "none" }} >
