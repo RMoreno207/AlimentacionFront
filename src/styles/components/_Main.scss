@@ -437,8 +437,16 @@ a:visited{
   .discounts{
     background: #E8AF43;
     margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    h1{
+      font-size: 20px;
+    }
   }
   
+
+
   
   .goRegister{
     display: flex;
@@ -821,17 +829,122 @@ a:visited{
   padding: 10px;
   border-radius: 16px;
   display: flex;
+  padding-left: 20px;
+  padding-bottom: 30px;
   margin-bottom: 40px;
   .countPeople{
     display: flex;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
   }
+  .bookingBtn{
+    width: 100%;
+    margin-left: 10px;
+  }
   .reservaImg{
-    width: 80%;
+    width: 70%;
+    gap: 10px;
     img{
       width: 100%;
+      border-radius: 16px;
+    }
+    label{
+      font-weight: bold;
+      // margin-bottom: 10px;
     }
   }
+}
+
+.operation{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  margin-top: 100px;
+  margin-left: 20px;
+}
+
+
+
+
+.mapContainer{
+  width: 80%;
+  margin: auto;
+  height: 485px;
+  border: 2px solid #144E24;
+  border-radius: 8px;
+  #root > div > main > article > div.detailsContainer > div.mapContainer > div > div{
+    height: 100px;
+    border-radius: 16px;
+  }
+  #root > div > main > article > div.detailsContainer > div.mapContainer > div > div > div.leaflet-control-container > div.leaflet-bottom.leaflet-right{
+    display: none;
+  }
+}
+
+#root > div > main > article > div.detailsContainer > div.mapContainer > div > div > div.leaflet-control-container > div.leaflet-bottom.leaflet-right > div{
+  display: none;
+}
+
+#root > div > main > article > div.detailsContainer > div.mapContainer > div > div > div.leaflet-control-container > div.leaflet-top.leaflet-left > div > a.leaflet-control-zoom-in{
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 10px;
+}
+
+#root > div > main > article > div.detailsContainer > div.mapContainer > div > div > div.leaflet-control-container > div.leaflet-top.leaflet-left > div > a.leaflet-control-zoom-out{
+  border-radius: 8px;
+  border: none;
+  
+}
+
+#root > div > main > article > div.detailsContainer > div.mapContainer > div > div > div.leaflet-control-container > div.leaflet-top.leaflet-left > div{
+  border: none;
+}
+
+
+.contactData{
+  font-weight: bold;
+  text-align: start;
+  margin-left: 40px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  gap: 20px;
+  p{
+    margin-bottom: 10px;
+  }
+  a{
+    color: #5bc378;
+    margin-bottom: 10px;
+  }
+  a:hover{
+    color: #79de96;
+  }
+}
+
+
+
+.discountImgs{
+  display: flex;
+  gap: 20px;
+  
+  align-items: center;
+  width: 80%;
+ .discountMini{
+  position: relative;
+  img{
+    width: 100%;
+    border-radius: 16px;
+   }
+   p{
+    position: absolute;
+    font-weight: bold;
+    color: white;
+    width: 100%;
+    vertical-align:middle;
+    padding: 10px;
+    margin-right: 15px;
+   }
+ }
 }

@@ -8,6 +8,8 @@ import Map from "../../common/Map/Map";
 import Recommendations from "../User/Recommendations/Recommendations";
 import BackLogo from '../../../assets/img/Back @2x.png';
 import { Rating } from "@mui/material";
+import { useLocation } from 'react-router-dom';
+
 
 function Details() {
   const params = useParams();// Para poder usar los parametros capturados por el router
@@ -17,7 +19,8 @@ function Details() {
   const { discounts, setDiscounts } = useContext(checkUserContext);//Hook con el listado de las stores
   const [isRestaurant, setIsRestaurant] = useState()
   const [rating,setRating] = useState(0);
-  const [inputText,setInputText] = useState(null)
+  const [inputText,setInputText] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
     getDetails(params.id)//Lanzamos la busqueda
@@ -91,8 +94,8 @@ function Details() {
             <p>vegetariano</p>
         </div>
 
-
-        <Discounts className="discounts" value={params.place_id} />
+       
+        {location.pathname.includes("restaurants")? <Discounts className="discounts" value={"restaurants"} />:<Discounts className="discounts" value={"stores"} />}
 
 
         {/* si es restaurante carga el componente opiniones de clientes */}
@@ -138,17 +141,21 @@ function Details() {
         <Reserva />
 
 
-        <Map className="detailMap" longitude={details.longitud} latitude={details.latitud} name={details.place_name} />
+       <div className="mapContainer">
+       <Map className="detailMap" longitude={details.longitud} latitude={details.latitud} name={details.place_name} />
+       </div>
 
 
+       <div className="contactData">
         <p>{details.address}</p>
 
         {details.website != "None" ?
-          <a href={details.website}><p>{details.website}</p></a>
-          : null}
+        <a href={details.website}><p>{details.website}</p></a>
+        : null}
 
         {details.phone != "None" ? < p > {details.phone}</p>
-          : null}
+        : null}
+       </div>
 
 
         <Recommendations />

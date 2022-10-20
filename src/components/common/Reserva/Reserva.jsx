@@ -62,9 +62,11 @@ const Reserva = (props) => {
           <img src={reservaMenu} alt="" />
         </div>
         <div className="countPeople">
-          <button onClick={sumPeople}>+</button>
-          <p>{people}</p>
-          <button onClick={subtractPeople}>-</button>
+          <div className="operation">
+            <button onClick={subtractPeople}>-</button>
+            <p>{people}</p>
+            <button onClick={sumPeople}>+</button>
+          </div>
           <button className="bookingBtn" onClick={sendBooking}>Reservar</button>
         </div>
        
