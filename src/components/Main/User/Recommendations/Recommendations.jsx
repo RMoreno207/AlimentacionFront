@@ -30,6 +30,13 @@ const Recommendations = (props) => {
 
     } else {
       console.log("es negocio");
+      if (props.re === "restaurants") {
+        setTipo("restaurante")
+        console.log("es restaurante en");
+      } else {
+        setTipo("tienda")
+
+      }
       getRecommendations();//Obtener lista de index recomendados de la API de Data segun el index del negocio actual
     }
 
@@ -54,7 +61,7 @@ const Recommendations = (props) => {
   //Fetch de cada uno de los index recomendados
   const getBusiness = async (item) => {
     try {
-      const res = await axios.get(`https://alimentacionback-production.up.railway.app/api/restaurant/?index=${item}`);
+      const res = await axios.get(`http://alimentacionback-production.up.railway.app/api/restaurant/?index=${item}`);
       const refactorData = {
         place_name: res.data[0].place_name,
         thumbnail: res.data[0].thumbnail,
