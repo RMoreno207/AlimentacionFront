@@ -6,6 +6,10 @@ import {Swiper,SwiperSlide} from 'swiper/react';
 import {FreeMode} from 'swiper';
 import 'swiper/css';
 import "swiper/css/free-mode";
+import discount1 from '../../../assets/img/descuento1.png';
+import discount2 from '../../../assets/img/descuento2.png';
+import discount3 from '../../../assets/img/descuento3.png';
+import discount4 from '../../../assets/img/descuento4.png';
 
 //Tendra que recibir algun parametro para indicarle la id del comercio a buscar
 const Discounts = (props) => {
@@ -14,41 +18,34 @@ const Discounts = (props) => {
   const { getDiscounts } = useContext(checkUserContext);//Funcion para obtener el listado de stores
 
 
-  useEffect(() => {
-    getDiscounts(info);
-  }, []);
-
-
   return (<>
-    {/* <section>
-      <h1>Descuentos:</h1>
-      {discounts ? discounts.episode.slice(0, 2)
-        .map((item, i) => <MiniCard key={uuidv4()} index={i} value={item} />)
-        : "Loading..."}
-    </section> */}
+
      <section className="profileSection discounts">
       <h1>Descuentos:</h1>
-      {/* {recommendations ? recommendations.episode.slice(0, 5)
-        .map((item, i) => <MiniCard key={uuidv4()} index={i} value={item} />)
-        : "Loading..."} */}
-        <Swiper freeMode={true}
-                grabCursor={true}
-                modules={[FreeMode]}
-                className='discountCarousel'
-                slidesPerView={2}
-                spaceBetween={30}>
-                {discounts?discounts.episode.slice(0,10).map((item,i)=>{
-                  return <SwiperSlide key={uuidv4()} index={i}><MiniCard value={item}/></SwiperSlide>
-                })
-                :<div>
-                  <SwiperSlide ><div className="spinner"></div></SwiperSlide>
-                <SwiperSlide ><div className="spinner"></div></SwiperSlide>
-                <SwiperSlide ><div className="spinner"></div></SwiperSlide>
-                <SwiperSlide ><div className="spinner"></div></SwiperSlide>
-                <SwiperSlide ><div className="spinner"></div></SwiperSlide>
-                <SwiperSlide ><div className="spinner"></div></SwiperSlide></div>}
+     
+      {props.value==="stores"?<div className="discountImgs">
+        <div className="discountMini">
+        <p className="discountText">15% de descuento en mermeladas</p>
+        <img src={discount3} alt="" />
+        </div>
+        <div className="discountMini">
+        <p className="discountText">10% de descuento en batidos</p>
+        <img src={discount4} alt="" />
+        </div>
+     </div>:<div className="discountImgs">
+        <div className="discountMini">
+        <p className="discountText">2x1 en nuestras pizzas</p>
+        <img src={discount1} alt="" />
+        </div>
+        <div className="discountMini">
+        <p className="discountText">20% en nuestros brunch</p>
+        <img src={discount2} alt="" />
+        </div>
+      </div>}
+      
+        
                 
-        </Swiper>
+       
     </section>
   </>)
 };
