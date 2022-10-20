@@ -18,7 +18,7 @@ const Favorites = (props) => {
 
 
   useEffect(() => {
-    getStores()
+    getStores(6)
     if (stores != null) {
       sortStores()
     }
@@ -29,8 +29,6 @@ const Favorites = (props) => {
       sortStores()
     }
   }, [stores]);
-
-  console.log(stores);
 
   const sortStores = () => {
     console.log("HANDLESORT");

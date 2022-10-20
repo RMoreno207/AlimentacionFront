@@ -1,17 +1,34 @@
-import React from "react";
+import React, { useState, useRef } from 'react'
+import { useEffect } from 'react';
+
+import { Link } from 'react-router-dom';
+
 
 const MiniCard = (props) => {
   const info = props.value;
+  const [isRestaurant, setIsRrestaurant] = useState();
+
+  useEffect(() => {
+    if (props.value.resotie === "Tienda") {
+      setIsRrestaurant(false)
+      console.log("Es tienda", props.value.resotie);
+    } else {
+      setIsRrestaurant("restaurants")
+
+    }
+
+  }, []);
 
   return (
-    
-    <div className="miniCardContainer">
-      <div className="miniText">
-        {console.log("main push")}
-        <h4>{info.place_name}</h4>
+    <Link to={`/stores/details/${info.place_id}/${isRestaurant}/${props.value.index}`} className="detailLink">
+
+      <div className="miniCardContainer">
+        <div className="miniText">
+          <h4>{info.place_name}</h4>
+        </div>
+        <img style={{ width: "100px" }} src={info.thumbnail} />
       </div>
-      <img style={{ width: "100px" }} src={info.thumbnail} />
-    </div>
+    </Link>
   )
 };
 

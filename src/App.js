@@ -59,7 +59,8 @@ function App() {
       console.log(userCheck);
       const datas = await axios.get(`https://alimentacionback-production.up.railway.app/api/getUser/?email=${userCheck}`);
       setUserData(...datas.data)
-      console.log("user detail", datas.data);
+      console.log("user detail", ...datas.data);
+      console.log("USER", userData);
     } catch (error) {
       console.log(error);
     }
