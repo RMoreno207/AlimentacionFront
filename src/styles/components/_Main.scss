@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre&display=swap');
+
+
 
 
 .loginForm{
@@ -436,8 +439,17 @@ a:visited{
 
   .discounts{
     background: #E8AF43;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    h1{
+      font-size: 20px;
+    }
   }
   
+
+
   
   .goRegister{
     display: flex;
@@ -578,3 +590,386 @@ a:visited{
     left: -200px;
     margin-bottom: 30px;
   }
+
+  .detailCard{
+    position: relative;
+    width: 80%;
+    display: grid;
+    grid-column: auto;
+    gap: 0px;
+    top: -20px;
+    // display: flex;
+    // flex-direction: column;
+    margin: auto;
+    h1{
+      padding: 10px;
+      padding-bottom: 20px;
+      background: #EAB756;
+      margin-bottom: 10px;
+      border-radius: 16px 16px 0px 0px;
+
+    }
+    img{
+     width: 100%;
+     height: 350px;
+     border-radius: 16px 16px 16px 16px;
+     position: absolute;
+     top: 110px;
+    }
+  }
+
+  .descriptionDetail{
+    position: relative;
+    width: 80%;
+    margin: auto;
+    top: 330px;
+    p{
+      
+    }
+    img{
+      padding: 16px;
+      background: #D2DDD5;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  }
+  .structureDetail{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .detailsContainer{
+    margin-top:380px ;
+  }
+
+  .tagsList{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: auto;
+    p{
+      margin:4px;
+      padding: 6px;
+      background: #48773E;
+      color: #FFFFFF;
+      font-weight: bold;
+      border-radius: 14px;
+      cursor: pointer;
+    }
+    p:hover{
+      background: #5f9553;
+    }
+  }
+
+  .commentSection{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    background: #A0C9AD;
+    border: 1px solid #040F07;
+    padding: 16px;
+    border-radius: 8px;
+    .topComment{
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
+      h3{
+        text-align: start;
+        margin: 0px;
+      }
+      p{
+        text-align: center;
+        margin-right:60px ;
+      }
+    }
+  }
+.starRating{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  p{
+    font-weight: bold;
+    margin-left: 10px;
+  }
+}
+.userComments{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  .comment{
+    padding: 15px;
+    background: #F7F9F9;
+    border-radius: 8px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    span{
+      margin-left: 4px;
+      font-weight: bold;
+    }
+
+  }
+}
+.moreComments{
+  color: white;
+  background: #48773E;
+  padding: 5px;
+  border-radius: 8px;
+  font-weight: bold;
+  width: 50%;
+  border: none;
+  margin: auto;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.bottomComments{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: #F7F9F9;
+  border-radius: 8px;
+  padding: 10px 10px 30px 10px;
+  margin-top: 40px;
+  button{
+    color: white;
+    background: #E8AF43;
+    padding: 5px;
+    border-radius: 8px;
+    font-weight: bold;
+    width: 50%;
+    border: none;
+    margin: auto;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  p{
+    font-weight: bold;
+  }
+
+  textarea{
+    width: 90%;
+    border: 1px solid #144E24;
+  }
+}
+
+.detailMap{
+  margin-top: 80px;
+}
+
+.bookingBtn{
+  color: rgb(27, 27, 27);
+  background: #E8AF43;
+  padding: 5px;
+  border-radius: 8px;
+  font-weight: bold;
+  width: 50%;
+  border: none;
+  margin: auto;
+  font-size: 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+
+}
+
+.countPeople{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  button{
+    background: #EFC77B;
+    border: none;
+    cursor: pointer;
+  }
+  h3{
+
+  }
+  p{
+    background: #EFC77B;
+    padding: 3px;
+    
+  }
+}
+
+#root > div > main > article > div.detailsContainer > div.react-calendar-datetime-picker > div.input-picker > input{
+  width: 60%;
+  border-radius: 8px;
+  border: none;
+  background: #E9F5ED;
+}
+
+#root > div > main > article > div.detailsContainer > div:nth-child(5) > div.react-calendar-datetime-picker > div > input{
+  width: 50%;
+}
+
+#root > div > main > article > div.detailsContainer > div.react-calendar-datetime-picker > div.calender-modal.undefined > div{
+  background: #E9F5ED;
+  margin:auto;
+  li{
+    color: black;
+  }
+}
+
+.bookingRestaurant{
+  display: flex;
+  width: 80%;
+  margin-left: 50px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+}
+
+.reservaTitle{
+  margin-top: 80px;
+}
+
+.reservaHolder{
+  width: 80%;
+  margin: auto;
+  // max-height: 300px;
+  background: #A0C9AD;
+  padding: 10px;
+  border-radius: 16px;
+  display: flex;
+  padding-left: 20px;
+  padding-bottom: 30px;
+  margin-bottom: 40px;
+  .countPeople{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .bookingBtn{
+    width: 100%;
+    margin-left: 10px;
+  }
+  .reservaImg{
+    width: 70%;
+    gap: 10px;
+    img{
+      width: 100%;
+      border-radius: 16px;
+      max-height: 300px;
+      margin-top: 10px;
+    }
+    label{
+      font-weight: bold;
+      // margin-bottom: 10px;
+    }
+  }
+}
+
+.operation{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  margin-top: 100px;
+  margin-left: 20px;
+}
+
+
+
+
+.mapContainer{
+  width: 80%;
+  margin: auto;
+  height: 485px;
+  border: 2px solid #144E24;
+  border-radius: 8px;
+  #root > div > main > article > div.detailsContainer > div.mapContainer > div > div{
+    height: 100px;
+    border-radius: 16px;
+  }
+  #root > div > main > article > div.detailsContainer > div.mapContainer > div > div > div.leaflet-control-container > div.leaflet-bottom.leaflet-right{
+    display: none;
+  }
+}
+
+#root > div > main > article > div.detailsContainer > div.mapContainer > div > div > div.leaflet-control-container > div.leaflet-bottom.leaflet-right > div{
+  display: none;
+}
+
+#root > div > main > article > div.detailsContainer > div.mapContainer > div > div > div.leaflet-control-container > div.leaflet-top.leaflet-left > div > a.leaflet-control-zoom-in{
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 10px;
+}
+
+#root > div > main > article > div.detailsContainer > div.mapContainer > div > div > div.leaflet-control-container > div.leaflet-top.leaflet-left > div > a.leaflet-control-zoom-out{
+  border-radius: 8px;
+  border: none;
+  
+}
+
+#root > div > main > article > div.detailsContainer > div.mapContainer > div > div > div.leaflet-control-container > div.leaflet-top.leaflet-left > div{
+  border: none;
+}
+
+
+.contactData{
+  font-weight: bold;
+  text-align: start;
+  margin-left: 40px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  gap: 20px;
+  p{
+    margin-bottom: 10px;
+  }
+  a{
+    color: #5bc378;
+    margin-bottom: 10px;
+  }
+  a:hover{
+    color: #79de96;
+  }
+}
+
+
+
+.discountImgs{
+  display: flex;
+  gap: 20px;
+  
+  align-items: center;
+  width: 80%;
+ .discountMini{
+  position: relative;
+  img{
+    width: 100%;
+    border-radius: 16px;
+   }
+   p{
+    position: absolute;
+    font-weight: bold;
+    color: white;
+    width: 100%;
+    vertical-align:middle;
+    padding: 10px;
+    margin-right: 15px;
+   }
+ }
+}
+
+body > div.swal2-container.swal2-center.swal2-backdrop-show > div > div.swal2-actions > button.swal2-confirm.swal2-styled.swal2-default-outline{
+  background: #E8AF43;
+}
+body > div.swal2-container.swal2-center.swal2-backdrop-show > div > div.swal2-actions > button.swal2-deny.swal2-styled{
+  background: #E8AF43;
+}
+
+body > div.swal2-container.swal2-center.swal2-backdrop-show > div > div.swal2-actions > button.swal2-deny.swal2-styled{
+  background: #E8AF43;
+}
+
+body > div.swal2-container.swal2-center.swal2-backdrop-show > div{
+  background: #ffffffea;
+}

@@ -5,7 +5,9 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../../common/Logo';
 import Switch from "react-switch";
-import Arrow from '../../../assets/img/arrow.png'
+import Arrow from '../../../assets/img/arrow.png';
+import Swal from 'sweetalert2/dist/sweetalert2.js'
+import 'sweetalert2/src/sweetalert2.scss'
 
 const SignUp = () => {
   const { register, watch, formState: { errors }, handleSubmit } = useForm();
@@ -25,6 +27,18 @@ const SignUp = () => {
   const handleChange2 = nextChecked => {
     setChecked2(nextChecked);
   };
+
+
+
+  useEffect(()=>{
+    Swal.fire({
+      title: "¿Permitir que K'mon acceda a tu ubicación mientras usas la app?",
+      text: "Tu ubicación actual se mostrará en el mapa y se usará para las indicaciones y los resultados de búsqueda.",
+      icon: 'warning',
+      confirmButtonColor: '#E8AF43',
+      confirmButtonText: 'Permitir'
+    })
+  },[])
 
 
   //Envio del formulario a la bbdd
