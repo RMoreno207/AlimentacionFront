@@ -18,9 +18,21 @@ const Recommendations = (props) => {
   const { stores, setStores, getStores } = useContext(checkUserContext);//Hook con el listado de las stores
   const { getFavorites } = useContext(checkUserContext);//Funcion para obtener el listado de stores
   const [items, setItems] = useState(stores);
+  // ---------------------CON API DATA-------------------------------
+  //Estado para recoger las recomendaciones obtenidas de la API de Data
+  const [businessRecomendated, setBusinessRecomendated] = useState([177, 40, 47, 229, 339, 357, 23, 367, 503, 46]);//borrar cuando ya conecte la API
+  //Estado para guardar los objetos recomendados
+  const [recommendations, setRecommendations] = useState([]);
+  // ----------------------------------------------------
 
 
   useEffect(() => {
+    // ---------------------CON API DATA-------------------------------
+    // getRecommendations();//Obtener lista de index recomendados de la API de Data segun el index del negocio actual
+    // getRecomendationsPersonal(); //Obtener Listado de index recomendados de la API de Data dependiendo de las preferencias del usuario
+    // getDetailsByIndex(businessRecomendated)//Obtener el listado de los objetos recomendados
+    // ---------------------------------------------------
+    //--------------------Version de carton---------------
     getStores()
     if (stores != null) {
       sortStores()
@@ -33,8 +45,6 @@ const Recommendations = (props) => {
     }
   }, [stores]);
 
-  console.log(stores);
-
   const sortStores = () => {
     console.log("HANDLESORT");
 
@@ -46,6 +56,67 @@ const Recommendations = (props) => {
     setItems(data);
     console.log(data);
   }
+  //----------------------------------------------------
+
+
+  // ---------------------CON API DATA-------------------------------
+  //Obtener lista de objetos recomendados de la API de Data segun el index del negocio actual
+  const getDetailsByIndex = async (recomendated) => {
+    const nuevaLista = recomendated.map(getBusiness);
+
+    Promise.all(nuevaLista).then(data => {
+      console.log(data);
+      setRecommendations([...data])
+    });
+  }
+  //Fetch de cadauno de los index recomendados
+  const getBusiness = async (item) => {
+    try {
+      const res = await axios.get(`https://alimentacionback-production.up.railway.app/api/restaurant/?index=${item}`);
+      console.log(res.data[0].place_name);
+      const refactorData = {
+        place_name: res.data[0].place_name,
+        thumbnail: res.data[0].thumbnail,
+        place_id: res.data[0].place_id
+      }
+      console.log(refactorData);
+      return refactorData;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  //Obtener lista de index recomendados de la API de Data segun el index del negocio actual
+  const getRecommendations = async () => {
+    try {
+      const res = await axios.get(`https://protected-ravine-80490.herokuapp.com/RecomendacionDependiente?ID=${props.index}`);
+      console.log("Res de API ", res);
+      setBusinessRecomendated(res);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  //Obtener las recomendaciones personales
+  const getRecomendationsPersonal = async () => {
+    //-----------------En pruebas--------------
+    try {
+      console.log("REEECOMENDATIOS PERSONAL");
+      const objeto = {
+        preferencias: [5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
+      }
+      const res = await axios.post(`https://protected-ravine-80490.herokuapp.com/RecomendacionPorPreferencias`, {
+        method: 'POST',
+        body: { "preferencias": [5, 5, 5, 5, 5, 5, 5, 5, 5, 5] }
+      });
+      //-----------------------------------------
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  // ----------------------------------------------------
+
 
   return (<>
     {/* <section>

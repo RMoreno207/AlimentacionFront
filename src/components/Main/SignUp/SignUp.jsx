@@ -30,7 +30,7 @@ const SignUp = () => {
 
 
 
-  useEffect(()=>{
+  useEffect(() => {
     Swal.fire({
       title: "¿Permitir que K'mon acceda a tu ubicación mientras usas la app?",
       text: "Tu ubicación actual se mostrará en el mapa y se usará para las indicaciones y los resultados de búsqueda.",
@@ -38,7 +38,7 @@ const SignUp = () => {
       confirmButtonColor: '#E8AF43',
       confirmButtonText: 'Permitir'
     })
-  },[])
+  }, [])
 
 
   //Envio del formulario a la bbdd
@@ -98,7 +98,7 @@ const SignUp = () => {
 
   return (
     <>
-     
+
       <Logo value={"noLink"} />
       <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
         <fieldset style={part1 ? {} : { display: "none" }} >
@@ -113,10 +113,6 @@ const SignUp = () => {
                 required: {
                   value: true,
                   message: "Por favor introduce un Nombre válido"
-                },
-                pattern: {
-                  value: /^[A-Za-z]+$/i,
-                  message: "El formato no es correcto"
                 },
                 minLength: {
                   value: 3,
