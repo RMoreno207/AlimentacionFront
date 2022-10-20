@@ -13,7 +13,7 @@ import { slide as Menu } from 'react-burger-menu'
 import { Fragment } from 'react';//ScrollButton
 import ScrollButton from "../../common/ScrollButton";//ScrollButton
 import { Content, Heading } from "../../common/Styles";//ScrollButton
-
+import arrow from '../../../assets/img/arrow.png'
 
 
 const List = () => {
@@ -124,8 +124,8 @@ const List = () => {
         </ul>
         {/* Indice de las paginas */}
         <ReactPaginate
-          previousLabel={"Previous"}
-          nextLabel={"Next"}
+          previousLabel={ <button className="backArrow" value="back"><img src={arrow} alt="" />Atrás</button>}
+          nextLabel={ <button className="nextArrow" value="next">Siguiente<img src={arrow} alt="" /></button>}
           pageCount={pageCount}
           onPageChange={changePage}
           containerClassName={"paginationBttns"}
