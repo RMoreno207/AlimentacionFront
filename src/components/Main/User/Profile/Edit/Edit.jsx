@@ -22,7 +22,7 @@ const Edit = () => {
   useEffect(() => {
     console.log("usuario: ", userCheck);
     console.log("Datos user", userData);
-    if (userData == null) {
+    if (userData === null) {
       userDetails()
     }
     if (userCheck === null) {

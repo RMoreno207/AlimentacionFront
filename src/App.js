@@ -13,7 +13,7 @@ import Restaurants from "./components/Main/Restaurants/Restaurants";
 
 
 function App() {
-  const [userCheck, setUserCheck] = useState(null);
+  const [userCheck, setUserCheck] = useState("ramon@ramon.es");
   const [userData, setUserData] = useState(null)//Hook para almacenar los datos del perfil de usuario
   const [stores, setStores] = useState(null);//Hook para almacenar el listado de tiendas
   const [details, setDetails] = useState(null);//Hook para almacenar los detalles de una store
@@ -59,7 +59,8 @@ function App() {
       console.log(userCheck);
       const datas = await axios.get(`https://alimentacionback-production.up.railway.app/api/getUser/?email=${userCheck}`);
       setUserData(...datas.data)
-      console.log("user detail", datas.data);
+      console.log("user detail", ...datas.data);
+      console.log("USER", userData);
     } catch (error) {
       console.log(error);
     }
