@@ -6,6 +6,7 @@ import Favorites from "../favorites/favorites"
 import Discounts from "../../../common/Discounts/Discounts";
 import Card from '../../List/Card/Card';
 import Settings from '../../../../assets/img/settings.png'
+import Recommendations2 from '../../../common/Recommendations2';
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -68,6 +69,10 @@ const Profile = () => {
     {preferences &&
       <Recommendations type={"profile"} preferences={preferences} />
     }
+
+    {/* de carton */}
+    <Recommendations2 />
+
     <Discounts />
 
     <Favorites />

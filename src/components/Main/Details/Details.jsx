@@ -11,6 +11,8 @@ import { Rating } from "@mui/material";
 import { useLocation } from 'react-router-dom';
 import Swal from 'sweetalert2/dist/sweetalert2.js'
 import 'sweetalert2/src/sweetalert2.scss'
+import Recommendations2 from '../../common/Recommendations2';
+
 
 function Details() {
   const params = useParams();// Para poder usar los parametros capturados por el router
@@ -184,6 +186,11 @@ function Details() {
 
 
           <Recommendations negocio={params.re} index={params.index} />
+
+          {/* de carton */}
+          <Recommendations2 />
+
+
 
         </div>
 
