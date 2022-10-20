@@ -6,9 +6,9 @@ const MiniCard = (props) => {
   return (
     <div className="miniCardContainer">
       <div className="cardText">
-        <h4 >{info}</h4>
+        <h4 >{info.place_name}</h4>
       </div>
-      <img style={{ width: "100px" }} src="https://media.istockphoto.com/photos/percents-picture-id172444168?k=20&m=172444168&s=612x612&w=0&h=7p_ZEb5MjSto0dPi0Y6uJvu4sCjrESGgaDe85hxVOLE=" alt="" />
+      <img style={{ width: "100px" }} src={info.thumbnail} />
     </div>
   )
 };
