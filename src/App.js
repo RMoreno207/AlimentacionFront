@@ -13,7 +13,7 @@ import Restaurants from "./components/Main/Restaurants/Restaurants";
 
 
 function App() {
-  const [userCheck, setUserCheck] = useState("ramon@ramon.es");
+  const [userCheck, setUserCheck] = useState(null);
   const [userData, setUserData] = useState(null)//Hook para almacenar los datos del perfil de usuario
   const [stores, setStores] = useState(null);//Hook para almacenar el listado de tiendas
   const [details, setDetails] = useState(null);//Hook para almacenar los detalles de una store
