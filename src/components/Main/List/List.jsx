@@ -122,7 +122,7 @@ const List = () => {
             .map((item, i) => <li key={uuidv4()} index={i}><Card isRestaurant={params.re} value={item} /></li>)
             : <h2>Loading...</h2>}
         </ul>
-        {/* Indice de las paginas */}
+        
         <ReactPaginate
           previousLabel={ <button className="backArrow" value="back"><img src={arrow} alt="" />Atrás</button>}
           nextLabel={ <button className="nextArrow" value="next">Siguiente<img src={arrow} alt="" /></button>}
