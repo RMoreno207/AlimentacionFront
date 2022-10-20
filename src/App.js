@@ -108,6 +108,8 @@ function App() {
     }
   }
 
+ 
+
   //Obtener las recomendaciones
   const getRecommendations = async (id) => {
     try {

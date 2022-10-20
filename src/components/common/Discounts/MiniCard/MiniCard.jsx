@@ -5,8 +5,8 @@ const MiniCard = (props) => {
 
   return (
     <div className="miniCardContainer">
-      <div className="cardText">
-        <h4 >{info.place_name}</h4>
+      <div className="miniText">
+        <h4>{info.place_name}</h4>
       </div>
       <img style={{ width: "100px" }} src={info.thumbnail} />
     </div>
