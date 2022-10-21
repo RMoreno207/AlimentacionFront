@@ -36,7 +36,7 @@ const Recommendations2 = (props) => {
     console.log("Ordenado by name");
     //Para ordenar de la A a la Z
     const data = [...stores].sort((a, b) => {
-      return a.longitud > b.longitud ? 1 : -1
+      return a.longitud < b.longitud ? 1 : -1
     })
     setItems(data);
     console.log(data);

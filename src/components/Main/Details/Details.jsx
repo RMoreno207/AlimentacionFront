@@ -185,7 +185,7 @@ function Details() {
           </div>
 
 
-          <Recommendations negocio={params.re} index={params.index} />
+          {/* <Recommendations negocio={params.re} index={params.index} /> */}
 
           {/* de carton */}
           <Recommendations2 />

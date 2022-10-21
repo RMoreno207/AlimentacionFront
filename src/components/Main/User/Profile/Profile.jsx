@@ -66,9 +66,9 @@ const Profile = () => {
       </div>
     </div>
 
-    {preferences &&
+    {/* {preferences &&
       <Recommendations type={"profile"} preferences={preferences} />
-    }
+    } */}
 
     {/* de carton */}
     <Recommendations2 />
